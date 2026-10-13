@@ -1,0 +1,63 @@
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+/* Call by Value */
+int addByValue(int a, int b)
+{
+int res;
+res = a + b;
+return res;
+}
+/* Call by Reference */
+void swapByReference(int *a, int *b)
+{
+int temp;
+temp = *a;
+*a = *b;
+*b = temp;
+}
+int main()
+{
+int a, b, res;
+int *ptr;
+int *arr;
+int n, i, sum;
+printf(&quot;Enter the first number: &quot;);
+scanf(&quot;%d&quot;, &amp;a);
+printf(&quot;Enter the second number: &quot;);
+scanf(&quot;%d&quot;, &amp;b);
+/* Pointer demonstration */
+ptr = &amp;a;
+printf(&quot;\nPointer Demonstration:&quot;);
+printf(&quot;\nValue of a = %d&quot;, *ptr);
+printf(&quot;\nAddress of a = %p&quot;, (void *)ptr);
+/* Call by Value */
+res = addByValue(a, b);
+printf(&quot;\n\nCall by Value:&quot;);
+printf(&quot;\nSum = %d&quot;, res);
+/* Call by Reference */
+swapByReference(&amp;a, &amp;b);
+printf(&quot;\n\nCall by Reference:&quot;);
+printf(&quot;\nAfter swapping, first number = %d&quot;, a);
+printf(&quot;\nAfter swapping, second number = %d&quot;, b);
+/* Dynamic Memory Allocation */
+printf(&quot;\n\nDynamic Memory Allocation&quot;);
+printf(&quot;\nEnter the number of elements: &quot;);
+scanf(&quot;%d&quot;, &amp;n);
+arr = (int *)malloc(n * sizeof(int));
+if(arr == NULL) {
+printf(&quot;Memory allocation failed.&quot;);
+return 0;
+}
+printf(&quot;Enter %d elements:\n&quot;, n);
+for(i = 0; i &lt; n; i++)
+{
+scanf(&quot;%d&quot;, &amp;arr[i]);
+}
+sum = 0;
+for(i = 0; i &lt; n; i++)
+{
+sum = sum + arr[i];
+}
+printf(&quot;Sum of dynamically allocated array = %d&quot;, sum);
+free(arr);
+return 0;
