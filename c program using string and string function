@@ -1,0 +1,23 @@
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+int main()
+{
+char str1[50], str2[50], str3[100];
+int res;
+printf(&quot;Enter the first string: &quot;);
+scanf(&quot;%s&quot;, str1);
+printf(&quot;Enter the second string: &quot;);
+scanf(&quot;%s&quot;, str2);
+res = strlen(str1);
+printf(&quot;\nLength of first string = %d&quot;, res);
+strcpy(str3, str1);
+printf(&quot;\nCopied string = %s&quot;, str3);
+res = strcmp(str1, str2);
+if(res == 0)
+printf(&quot;\nBoth strings are equal&quot;);
+else
+printf(&quot;\nBoth strings are not equal&quot;);
+strcat(str1, str2);
+printf(&quot;\nConcatenated string = %s&quot;, str1);
+return 0;
+}
